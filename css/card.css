@@ -264,3 +264,42 @@
 .valentine-card fieldset {
   margin: 2em 0em;
 }
+
+.valentine-card .default-option {
+  color: gray;
+}
+
+/* DISPLAY */
+.service-cell {
+  color:#ee958b;
+}
+
+.service-cell p {
+  font-size: 18px;
+}
+
+#display {
+  display: none;
+
+  padding: 20px;
+  margin-left: 85px;
+  margin-top: 85px;
+  border: 3px solid #ebaca5;
+
+  color: #ebaca5;
+  font-size: large;
+}
+
+#display .container {
+  width: 100%;
+  padding: 0px;
+}
+
+#display h2 {
+  color: #ee958b;
+}
+
+#display p {
+  font-size: large;
+  line-height: inherit;
+}
