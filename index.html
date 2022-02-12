@@ -18,7 +18,7 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,600,700%7CPlayfair+Display:400i,700,700i" rel="stylesheet">
   <!-- Theme CSS -->
   <link href="css/style.css" rel="stylesheet">
-  <link href="./card/card.css" rel="stylesheet">
+  <link href="css/card.css" rel="stylesheet">
 </head>
 
 <body id="page-top" class="index">
@@ -276,22 +276,17 @@
                       <i class="fa fa-exclamation"></i>
                     </label>
                     <select name="physical" id="physical" class="font input-style w-100" required>
-                      <option value="" disabled selected>Most Attractive Physical Traits</option>
+                      <option class="default-option" value="" disabled selected>Most Attractive Physical Traits</option>
                       <option value="Beautiful eyes">Beautiful eyes</option>
                       <option value="Soft lips">Soft lips</option>
                       <option value="Sweet laugh">Sweet laugh</option>
                       <option value="Cheeky grin">Cheeky grin</option>
                       <option value="Great hair">Great hair</option>
                       <option value="Curves">Curves</option>
-                      <option value="Body-ody">Body-ody</option>
-                      <option value="Big booty">Big booty</option>
-                      <option value="Lil booty">Lil booty</option>
                       <option value="Legs">Legs</option>
                       <option value="Flexible">Flexible</option>
                       <option value="Thick thighs">Thick thighs</option>
                       <option value="Strong arms">Strong arms</option>
-                      <option value="Breasteses">Breasteses</option>
-                      <option value=";)">;)</option>
                     </select>
                   </div>
       
@@ -300,22 +295,20 @@
                           <i class="fa fa-check"></i>
                       </label>
                       <select name="necessary" id="necessary" class="font input-style w-100" required>                  
-                          <option value="" disabled selected>Something This person can't live without</option>
+                          <option class="default-option" value="" disabled selected>Something This person can't live without</option>
                           <option value="Chocolate">Chocolate</option>
                           <option value="Coffee">Coffee</option>
                           <option value="Boba/Bubble Tea">Boba/Bubble Tea</option>
                           <option value="Dumplings">Dumplings</option>
-                          <option value="Tik toks">Tik toks</option>
-                          <option value="Juice">Juice</option>
+                          <option value="Tik toks">Tik tok</option>
                           <option value="Pasta">Pasta</option>
                           <option value="Cheese">Cheese</option>
                           <option value="Cats">Cats</option>
                           <option value="Dogs">Dogs</option>
-                          <option value="The devil's lettuce">The devil's lettuce</option>
                           <option value="Anime">Anime</option>
                           <option value="Sports">Sports</option>
                           <option value="Drama">Drama</option>
-                          <option value="Talking about their car">Talking about their car</option>
+                          <option value="Games">Games</option>
                       </select>
                     </div>
                     
@@ -327,7 +320,7 @@
                     </div>
                   <!-- Login Link and Submit -->
                   <div class="d-flex justify-between align-center w-100 bottom">
-                    <div><span>Subscribe to Newsletter</span><a href="/login" class="login">YES</a></div>
+                    <div><span></span><a href="/login" class="login"></a></div>
                     <button id="submitButton" type="button" onclick="showRecipe()">Submit</button>
                   </div>
                 </fieldset>
@@ -339,8 +332,8 @@
       <div class="col-sm-12 col-md-6 right">
         <div>
           <div class="col-sm-6 col-md-12 service-info">
-            <div class="service-cell">
-              <h2 class="service-heading fade-animate">Custom Valentines Card</h2>
+            <div class="service-cell" id="valentine-intro">
+              <h1 class="service-heading fade-animate">Custom Valentines Card</h1>
               <div class="service-separator"></div>
               <p class="service-text fade-animate">What's better to end a Valentine's date with a perfect, customized gift
                 showing your love and affection for the other person?
@@ -349,6 +342,11 @@
               <p class="service-text fade-animate">Fill in the form to generate your card!
               </p>
             </div>
+
+            <div id="display">
+
+            </div>
+
           </div>
         </div>
       </div>
@@ -1081,6 +1079,7 @@
 <script src="js/jqBootstrapValidation.js"></script>
 <!-- Theme JavaScript -->
 <script src="js/main.js"></script>
+<script src="js/valentine-card.js"></script>
 </body>
 
 <!-- Mirrored from html.third-generation-web.com/mille-fiori/index-light.html by  Website Copier/3.x [XR&CO'2014], Fri, 11 Feb 2022 14:53:42 GMT -->

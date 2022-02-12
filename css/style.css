@@ -196,7 +196,7 @@ textarea:-webkit-autofill:focus {
   background-image: none;
 }
 section {
-  padding: 100px 0;
+  padding-top: 100px;
 }
 section .section-heading {
   font-family: 'Playfair Display', serif;
