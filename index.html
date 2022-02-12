@@ -18,6 +18,7 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,600,700%7CPlayfair+Display:400i,700,700i" rel="stylesheet">
   <!-- Theme CSS -->
   <link href="css/style.css" rel="stylesheet">
+  <link href="./card/card.css" rel="stylesheet">
 </head>
 
 <body id="page-top" class="index">
@@ -225,50 +226,128 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h4 class="section-name fade-animate">Services<i class="fa fa-minus" aria-hidden="true"></i></h4>
+        <h4 class="section-name fade-animate">Valentine Card<i class="fa fa-minus" aria-hidden="true"></i></h4>
       </div>
     </div>
     <div class="row pos-r">
       <div class="service-image-container col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0">
-        <div class="service-image1"></div>
-        <div class="service-image2"></div>
+        <div class="valentine-card">
+          <!-- MAIN -->
+          <!-- Main Container -->
+          <div class="d-flex w-100 justify-center align-center parallax">
+            <div class="container d-flex flex-col justify-center align-center">
+              <form>
+                <fieldset class="form d-flex flex-col align-start">
+                  <!-- Title -->
+                  <div class="title d-flex align-center justify-center">
+                    <legend>Baking...</legend>
+                  </div>
+                  <!-- Email -->
+                  <div class="input-box w-100 d-flex">
+                    <label for="name" class="d-flex align-center justify-center">
+                      <i class="fa fa-user"></i>
+                    </label>
+                    <input class="input-style w-100" id="name" name="user_name" type="text" placeholder="Name of the person" required>
+                  </div>
+                  <!-- Password -->
+                  <div class="input-box w-100 d-flex">
+                    <label for="relationship" class="d-flex align-center justify-center">
+                      <i class="fa fa-heart"></i>
+                    </label>
+                    <input class="input-style w-100" type="text" id="relationship" name="relationship" placeholder="Relationship between you" required>
+                  </div>
+                  <!-- First Name -->
+                  <div class="input-box w-100 d-flex">
+                    <label for="descriptor" class="d-flex align-center justify-center">
+                      <i class="fa fa-quote-left"></i>
+                    </label>
+                    <input class="input-style w-100" type="text" id="descriptor" name="descriptor" placeholder="A word to describe them" required>
+                  </div>
+                  <!-- Last Name -->
+                  <div class="input-box w-100 d-flex">
+                    <label for="personality" class="d-flex align-center justify-center">
+                      <i class="fa fa-star"></i>
+                    </label>
+                    <input class="input-style w-100" type="text" id="personality" name="personality" placeholder="Their Personality" required>
+                  </div>
+                  <!-- Province -->
+                  <div class="input-box w-100 d-flex">
+                    <label for="physical" class="d-flex align-center justify-center">
+                      <i class="fa fa-exclamation"></i>
+                    </label>
+                    <select name="physical" id="physical" class="font input-style w-100" required>
+                      <option value="" disabled selected>Most Attractive Physical Traits</option>
+                      <option value="Beautiful eyes">Beautiful eyes</option>
+                      <option value="Soft lips">Soft lips</option>
+                      <option value="Sweet laugh">Sweet laugh</option>
+                      <option value="Cheeky grin">Cheeky grin</option>
+                      <option value="Great hair">Great hair</option>
+                      <option value="Curves">Curves</option>
+                      <option value="Body-ody">Body-ody</option>
+                      <option value="Big booty">Big booty</option>
+                      <option value="Lil booty">Lil booty</option>
+                      <option value="Legs">Legs</option>
+                      <option value="Flexible">Flexible</option>
+                      <option value="Thick thighs">Thick thighs</option>
+                      <option value="Strong arms">Strong arms</option>
+                      <option value="Breasteses">Breasteses</option>
+                      <option value=";)">;)</option>
+                    </select>
+                  </div>
+      
+                  <div class="input-box w-100 d-flex">
+                      <label for="necessary" class="d-flex align-center justify-center">
+                          <i class="fa fa-check"></i>
+                      </label>
+                      <select name="necessary" id="necessary" class="font input-style w-100" required>                  
+                          <option value="" disabled selected>Something This person can't live without</option>
+                          <option value="Chocolate">Chocolate</option>
+                          <option value="Coffee">Coffee</option>
+                          <option value="Boba/Bubble Tea">Boba/Bubble Tea</option>
+                          <option value="Dumplings">Dumplings</option>
+                          <option value="Tik toks">Tik toks</option>
+                          <option value="Juice">Juice</option>
+                          <option value="Pasta">Pasta</option>
+                          <option value="Cheese">Cheese</option>
+                          <option value="Cats">Cats</option>
+                          <option value="Dogs">Dogs</option>
+                          <option value="The devil's lettuce">The devil's lettuce</option>
+                          <option value="Anime">Anime</option>
+                          <option value="Sports">Sports</option>
+                          <option value="Drama">Drama</option>
+                          <option value="Talking about their car">Talking about their car</option>
+                      </select>
+                    </div>
+                    
+                    <div class="input-box w-100 d-flex">
+                      <label for="sender" class="d-flex align-center justify-center">
+                          <i class="fa fa-user"></i>
+                      </label>
+                      <input class="input-style w-100" type="text" id="sender" name="sender" placeholder="Your Name" required>
+                    </div>
+                  <!-- Login Link and Submit -->
+                  <div class="d-flex justify-between align-center w-100 bottom">
+                    <div><span>Subscribe to Newsletter</span><a href="/login" class="login">YES</a></div>
+                    <button id="submitButton" type="button" onclick="showRecipe()">Submit</button>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col-sm-12 col-md-6 right">
         <div>
           <div class="col-sm-6 col-md-12 service-info">
-            <i class="fa fa-camera-retro fa-3x pull-left service-icon" aria-hidden="true"></i>
             <div class="service-cell">
-              <h4 class="service-heading fade-animate">Event floral arrangements</h4>
+              <h2 class="service-heading fade-animate">Custom Valentines Card</h2>
               <div class="service-separator"></div>
-              <p class="service-text fade-animate">Weddings, celebrations, parties - we can decorate and make your event
-                more beautiful and unforgetable with special floral arrangements and decorations.</p>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-12 service-info">
-            <i class="fa fa-globe fa-3x pull-left service-icon" aria-hidden="true"></i>
-            <div class="service-cell">
-              <h4 class="service-heading fade-animate">Flower deliveries</h4>
+              <p class="service-text fade-animate">What's better to end a Valentine's date with a perfect, customized gift
+                showing your love and affection for the other person?
+              </p>
               <div class="service-separator"></div>
-              <p class="service-text fade-animate">You can have the delivery at your choosen place any day of the week,
-                from monday to sunday, from 9 AM to 6 PM, with punctuality and responsibility</p>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-12 service-info">
-            <i class="fa fa-gift fa-3x pull-left service-icon" aria-hidden="true"></i>
-            <div class="service-cell">
-              <h4 class="service-heading fade-animate">Special occasion bouquets</h4>
-              <div class="service-separator"></div>
-              <p class="service-text fade-animate">We will help you make someone's birthday, graduation, celebration
-                and any day more bright and beatiful with a special flower bouquet and personal note.</p>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-12 service-info">
-            <i class="fa fa-pagelines fa-3x pull-left service-icon" aria-hidden="true"></i>
-            <div class="service-cell">
-              <h4 class="service-heading fade-animate">Fresh flowers directly from farms</h4>
-              <div class="service-separator"></div>
-              <p class="service-text fade-animate">We partnered with the best flower farms in the country, in order to
-                make sure the flowers you get are the freshest, eco-friendly, organic flowers possible.</p>
+              <p class="service-text fade-animate">Fill in the form to generate your card!
+              </p>
             </div>
           </div>
         </div>
