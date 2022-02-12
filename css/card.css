@@ -208,6 +208,7 @@
   background-color:#f5eef0;
   border-right: 3px solid black;
   color: #e6938a;
+  margin: 0px;
 }
 
 .valentine-card .input-box > label > img {
@@ -285,6 +286,7 @@
   margin-left: 85px;
   margin-top: 85px;
   border: 3px solid #ebaca5;
+  background: rgb(255 249 249);
 
   color: #ebaca5;
   font-size: large;

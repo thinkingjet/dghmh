@@ -196,7 +196,7 @@ textarea:-webkit-autofill:focus {
   background-image: none;
 }
 section {
-  padding-top: 100px;
+  padding: 100px;
 }
 section .section-heading {
   font-family: "Playfair Display", serif;
@@ -233,7 +233,7 @@ section h4.section-name .fa {
   top: 0;
 }
 header {
-  height: 83%;
+  height: 15%;
   position: relative;
   z-index: 10;
   background-color: white;
@@ -610,6 +610,10 @@ header {
 }
 /* ------END QUOTE----------- */
 /* ------9. START SERVICES----------- */
+#services {
+  background-color:#f5eef0; 
+}
+
 #services .service-image-container {
   position: relative;
   bottom: 50px;

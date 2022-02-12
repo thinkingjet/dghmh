@@ -429,6 +429,7 @@
                           for="necessary"
                           class="d-flex align-center justify-center"
                         >
+
                           <i class="fa fa-check"></i>
                         </label>
                         <select
@@ -694,6 +695,51 @@
       </div>
     </section>
 
+    <!------Bird card-->
+    <section id="subscribe" class="cta-form">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+            <h1 class="subscribe-heading section-heading fade-animate">
+              Valentine Card
+            </h1>
+            <!-- MailChimp Signup Form -->
+            <div id="mc_embed_signup">
+              <form>
+                <div class="input-group input-group-lg form-group">
+                  <input
+                    type="text"
+                    name="valentine"
+                    class="form-control bird-card"
+                    placeholder="To"
+                    required
+                    data-validation-required-message="Please enter your email address."
+                  />
+                  <input
+                    type="text"
+                    name="message"
+                    class="form-control bird-card"
+                    placeholder="Enter your message"
+                    required
+                    data-validation-required-message="Please enter your email address."
+                  />
+                <span class="input-group-btn">
+                  <button
+                    type="submit"
+                    onclick="sendValue();"
+                    class="btn btn-xl"
+                  >
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                  </button>
+                </span>
+                </div>
+                <div id="subscribe2-success"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Contact Section -->
     <section id="contact">
       <div class="bg-filter"></div>
