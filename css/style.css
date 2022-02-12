@@ -568,7 +568,7 @@ header {
   background-image: url('../img/team/secretary-1379839_1280.jpg');
 }
 #team .team-image-cell .team-cell4 {
-  background-image: url('../img/team/portrait-2226001_1280.jpg');
+  background-image: url('../img/team/romeo.jpg');
 }
 /* ------END TEAM----------- */
 /* ------8. START QUOTE----------- */
@@ -1508,3 +1508,24 @@ figure.effect-layla:hover h2 {
     padding: 15px 0;
   }
 }
+#root {
+
+}
+
+.container {
+
+}
+
+.card {
+ 
+}
+
+@media screen  {
+  .card {
+   
+  }
+}
+
+@media screen {
+ 
+  }

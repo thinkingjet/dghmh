@@ -71,6 +71,7 @@
     }
   });
 
+
   $("#subscribe-form input").jqBootstrapValidation({
     preventSubmit: true,
     submitError: function ($form, event, errors) {
@@ -82,7 +83,7 @@
       event.preventDefault(); // prevent default submit behaviour
       var email = $("input#email").val();
       $.ajax({
-        url: "../mail/subscribe.php",
+
         type: "POST",
         data: {
           email: email
