@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<hmtl lang="en-US">
+  <head>
+    <title>Valentine Recipe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./card.css" rel="stylesheet">
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="valentine-card">
+    <!-- MAIN -->
+    <!-- Main Container -->
+    <div class="d-flex w-100 justify-center align-center parallax">
+      <div class="container d-flex flex-col justify-center align-center">
+        <form>
+          <fieldset class="form d-flex flex-col align-start">
+            <!-- Title -->
+            <div class="title d-flex align-center justify-center">
+              <legend>Baking...</legend>
+            </div>
+            <!-- Email -->
+            <div class="input-box w-100 d-flex">
+              <label for="name" class="d-flex align-center justify-center">
+                <i class="fa fa-user"></i>
+              </label>
+              <input class="input-style w-100" id="name" name="user_name" type="text" placeholder="Name of the person" required>
+            </div>
+            <!-- Password -->
+            <div class="input-box w-100 d-flex">
+              <label for="relationship" class="d-flex align-center justify-center">
+                <i class="fa fa-heart"></i>
+              </label>
+              <input class="input-style w-100" type="text" id="relationship" name="relationship" placeholder="Relationship between you" required>
+            </div>
+            <!-- First Name -->
+            <div class="input-box w-100 d-flex">
+              <label for="descriptor" class="d-flex align-center justify-center">
+                <i class="fa fa-quote-left"></i>
+              </label>
+              <input class="input-style w-100" type="text" id="descriptor" name="descriptor" placeholder="A word to describe them" required>
+            </div>
+            <!-- Last Name -->
+            <div class="input-box w-100 d-flex">
+              <label for="personality" class="d-flex align-center justify-center">
+                <i class="fa fa-star"></i>
+              </label>
+              <input class="input-style w-100" type="text" id="personality" name="personality" placeholder="Their Personality" required>
+            </div>
+            <!-- Province -->
+            <div class="input-box w-100 d-flex">
+              <label for="physical" class="d-flex align-center justify-center">
+                <i class="fa fa-exclamation"></i>
+              </label>
+              <select name="physical" id="physical" class="font input-style w-100" required>
+                <option value="" disabled selected>Most Attractive Physical Traits</option>
+                <option value="Beautiful eyes">Beautiful eyes</option>
+                <option value="Soft lips">Soft lips</option>
+                <option value="Sweet laugh">Sweet laugh</option>
+                <option value="Cheeky grin">Cheeky grin</option>
+                <option value="Great hair">Great hair</option>
+                <option value="Curves">Curves</option>
+                <option value="Body-ody">Body-ody</option>
+                <option value="Big booty">Big booty</option>
+                <option value="Lil booty">Lil booty</option>
+                <option value="Legs">Legs</option>
+                <option value="Flexible">Flexible</option>
+                <option value="Thick thighs">Thick thighs</option>
+                <option value="Strong arms">Strong arms</option>
+                <option value="Breasteses">Breasteses</option>
+                <option value=";)">;)</option>
+              </select>
+            </div>
+
+            <div class="input-box w-100 d-flex">
+                <label for="necessary" class="d-flex align-center justify-center">
+                    <i class="fa fa-check"></i>
+                </label>
+                <select name="necessary" id="necessary" class="font input-style w-100" required>                  
+                    <option value="" disabled selected>Something This person can't live without</option>
+                    <option value="Chocolate">Chocolate</option>
+                    <option value="Coffee">Coffee</option>
+                    <option value="Boba/Bubble Tea">Boba/Bubble Tea</option>
+                    <option value="Dumplings">Dumplings</option>
+                    <option value="Tik toks">Tik toks</option>
+                    <option value="Juice">Juice</option>
+                    <option value="Pasta">Pasta</option>
+                    <option value="Cheese">Cheese</option>
+                    <option value="Cats">Cats</option>
+                    <option value="Dogs">Dogs</option>
+                    <option value="The devil's lettuce">The devil's lettuce</option>
+                    <option value="Anime">Anime</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Talking about their car">Talking about their car</option>
+                </select>
+              </div>
+              
+              <div class="input-box w-100 d-flex">
+                <label for="sender" class="d-flex align-center justify-center">
+                    <i class="fa fa-user"></i>
+                </label>
+                <input class="input-style w-100" type="text" id="sender" name="sender" placeholder="Your Name" required>
+              </div>
+            <!-- Login Link and Submit -->
+            <div class="d-flex justify-between align-center w-100 bottom">
+              <div><span>Subscribe to Newsletter</span><a href="/login" class="login">YES</a></div>
+              <button id="submitButton" type="button" onclick="showRecipe()">Submit</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+    
+    <p id="display"></p>
+  </body>
+  <script src="./card.js"></script>
+</html>

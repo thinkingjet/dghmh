@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.valentine-card h1 {
+  text-align: center;
+  font-size: 3em;
+  color: #631f38;
+  padding: 1em;
+}
+
+/* Font */
+.valentine-card label,
+.valentine-card p,
+.valentine-card a,
+.valentine-card button,
+.valentine-card select,
+.valentine-card input,
+.valentine-card span {
+  font-family: 'Poppins', sans-serif;
+  color: black;
+}
+
+/* Flex Styles - Start */
+.d-flex { display: -webkit-box; display: -ms-flexbox; display: flex; }
+.justify-center { -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; }
+.justify-start { -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; }
+.justify-end { -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; }
+.justify-around { -ms-flex-pack: distribute; justify-content: space-around; }
+.justify-between { -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
+.justify-evenly { -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; }
+.align-center { -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.align-start { -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; }
+.flex-row { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; }
+.flex-col { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+.flex-wrap { -ms-flex-wrap: wrap; flex-wrap: wrap; }
+.w-100 { width: 100%; }
+/* Flex Styles - End */
+
+
+/* Header - Start */
+.valentine-card header {
+  position: relative;
+  z-index: 2;
+}
+
+.valentine-card header img {
+  margin: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+/* Header - Start */
+
+/* Title - Start */
+.valentine-card .title {
+  width: 100%;
+  height: 180px;
+  background-color: #f5eef0;
+  border-radius: 15px 15px 0 0;
+  margin-bottom: 25px;
+  border: 3px solid black;
+}
+
+.valentine-card .title img {
+  width: 280px
+}
+
+.valentine-card legend {
+  font-size: 40px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  /* color: white; */
+  color: #e6938a;
+}
+
+/* Title - End */
+
+/* Main Container - Start */
+.valentine-card .container {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 15px;
+  border: 3px solid black;
+  margin: 3em 1em 3em 2em;
+}
+
+@media only screen and (min-width: 1660px) {
+.stars {
+  left: auto;
+  right: auto;
+  width: 79vw;
+}
+}
+
+@media screen and (max-height: 615px) {
+.parallax {
+  min-height: 800px;
+  height: 100vh;
+}
+
+.valentine-card .container {
+  margin: 8em 1em 8em 2em;
+}
+}
+
+
+@media screen and (min-height: 1000px) and (min-width: 820px) {
+.stars {
+  margin-top: -10em; 
+}
+
+.valentine-card .container {
+  margin: 12em 1em 10em 2em;
+}
+}
+
+@media screen and (min-width: 615px) {
+.valentine-card .container { 
+  min-width: 530px;
+}
+}
+
+.valentine-card .container > img {
+  width: 100%;
+  height: 200px;
+}
+
+.valentine-card .container::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 15px;
+  left: -20px;
+  height: 100%;
+  width: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(#F2EFFE), to(#FEEDEB));
+  background: -o-linear-gradient(left, #F2EFFE, #FEEDEB);
+  background: linear-gradient(to right, #F2EFFE, #FEEDEB);
+  border-radius: 15px;
+  border: 3px solid black;
+}
+
+.valentine-card #signUp {
+  width: 100%;
+  padding: 40px;
+}
+
+@media only screen and (max-width: 900px) {
+  .parallax {
+      position: relative;
+      height: 100%;
+      max-height: none;
+      width: 100%;
+      overflow-x: initial;
+      overflow-y: initial;
+      -webkit-perspective: none;
+              perspective: none;
+  }
+
+  .valentine-card .container {
+      margin: 2em 1em 6em 2em;
+  }
+
+  .stars {
+      display: none;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .valentine-card #signUp {
+      padding: 20px;
+  }
+}
+/* Main Container - End */
+
+/* Form Inputs - Start */
+.valentine-card .input-box,
+.subscribe {
+  margin-bottom: 17px;
+  border: 3px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.valentine-card .subscribe {
+  padding: 18px 15px;
+  background: url(https://i.ibb.co/g67Qsb6/gradient1.png);
+  background-repeat: no-repeat;
+  background-size: 110%;
+  background-position: -5px -10px;
+}
+
+.valentine-card .subscribe span {
+  margin-left: 10px;
+}
+
+.valentine-card .input-box > label {
+  width: 65px;
+  height: 55px;
+  background-color:#f5eef0;
+  border-right: 3px solid black;
+  color: #e6938a;
+}
+
+.valentine-card .input-box > label > img {
+  max-height: 30px;
+  max-width: 30px;
+}
+
+.valentine-card .input-style {
+  border: none;
+  font-size: 16px;
+  padding: 15px;
+}
+
+.valentine-card select {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Safari, Chrome, Opera */
+  -webkit-appearance: none;
+}
+
+/* for IE10 */
+.valentine-card select::-ms-expand {
+  display: none;
+}
+/* Form Inputs - Start */
+
+/* Login and Submit - Start */
+.valentine-card .bottom {
+  margin-top: 20px;
+}
+
+.valentine-card .bottom button {
+  padding: 10px 33px 8px;
+  border: 3px solid black;
+  border-radius: 100px;
+  background-color: #f5eef0;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  color: black;
+}
+
+.valentine-card .bottom span {
+  margin-right: 10px;
+}
+
+.valentine-card .bottom .login {
+  color: #E6889D;
+  text-decoration: none;
+  border-bottom: 3px solid black;
+}
+/* Login and Submit - End */
+
+.valentine-card fieldset {
+  margin: 2em 0em;
+}
