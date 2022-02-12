@@ -11,7 +11,7 @@ var measurements = [
     "slices of",
 ];
 
-var endOfLetter = ["Love", "XOXO", "Will you be my valentine?", "<3"];
+var endOfLetter = ["Love", "XOXO", "With all my heart", "<3"];
 
 function addIngredientsFromList(listToAdd) {
     ingredientsList = "";
