@@ -25,7 +25,7 @@ html {
 }
 body {
   overflow-x: hidden;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   height: 100%;
   color: #333;
   background-color: #fff;
@@ -199,7 +199,7 @@ section {
   padding: 100px;
 }
 section .section-heading {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-weight: 700;
   font-size: 80px;
   color: #ebaca5;
@@ -331,17 +331,17 @@ header {
   margin: 0 10px;
   font-size: 12px;
   position: relative;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 .navbar-custom .nav li a:after {
-  transition: all .5s;
+  transition: all 0.5s;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   margin: auto;
   width: 0;
-  content: '.';
+  content: ".";
   color: transparent;
   background-color: #b28d94;
   height: 1px;
@@ -370,7 +370,7 @@ header {
 .navbar-nav > .logo > a {
   padding: 0 !important;
   background-color: transparent !important;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 .navbar-nav > .logo > a:after {
   display: none;
@@ -430,7 +430,8 @@ header {
   background: url("../img/basket-1846135_1920.jpg") no-repeat center top;
 }
 .carousel-inner .carusel1 {
-  background: url("../img/bouquet-of-flowers-1149099_1920.jpg") no-repeat center top;
+  background: url("../img/bouquet-of-flowers-1149099_1920.jpg") no-repeat center
+    top;
 }
 .carousel-fade .carousel-inner .item {
   transition-property: opacity;
@@ -490,7 +491,8 @@ header {
   right: 0;
 }
 #blog .blog-image-cell .blog-image {
-  background: url("../img/bouquet-of-flowers-1149099_1920.jpg") no-repeat center center;
+  background: url("../img/bouquet-of-flowers-1149099_1920.jpg") no-repeat center
+    center;
   background-size: cover;
   height: 100%;
   width: 100%;
@@ -532,7 +534,7 @@ header {
   border-left: 2px solid #f5eef0;
 }
 #team .team-image-cell h5 {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   text-align: center;
   letter-spacing: 2px;
 }
@@ -559,16 +561,16 @@ header {
   width: 200px;
 }
 #team .team-image-cell .team-cell1 {
-  background-image: url('../img/team/girl-657753_1280.jpg');
+  background-image: url("../img/team/girl-657753_1280.jpg");
 }
 #team .team-image-cell .team-cell2 {
-  background-image: url('../img/team/model-2373537_1280.jpg');
+  background-image: url("../img/team/model-2373537_1280.jpg");
 }
 #team .team-image-cell .team-cell3 {
-  background-image: url('../img/team/secretary-1379839_1280.jpg');
+  background-image: url("../img/team/secretary-1379839_1280.jpg");
 }
 #team .team-image-cell .team-cell4 {
-  background-image: url('../img/team/portrait-2226001_1280.jpg');
+  background-image: url("../img/team/portrait-2226001_1280.jpg");
 }
 /* ------END TEAM----------- */
 /* ------8. START QUOTE----------- */
@@ -590,7 +592,7 @@ header {
   margin: 25px auto;
 }
 #quote blockquote {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   color: #ffffff;
   font-weight: 400;
   font-size: 26px;
@@ -615,7 +617,7 @@ header {
 #services .service-image-container {
   position: relative;
   bottom: 50px;
-  left:20px;
+  left: 20px;
 }
 #services .container {
   width: 1300px;
@@ -755,7 +757,7 @@ header {
   margin-bottom: 20px;
 }
 #portfolio .grid-item .portfolio-cell h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-weight: 800;
   letter-spacing: 1px;
   text-transform: none;
@@ -805,21 +807,46 @@ header {
   height: 100%;
   padding: 3em;
 }
-#portfolio .grid-item .portfolio-link .portfolio-item .effect-layla .portfolio-cell1 {
-  background-image: url('../img/basket-1846135_1920.jpg');
+#portfolio
+  .grid-item
+  .portfolio-link
+  .portfolio-item
+  .effect-layla
+  .portfolio-cell1 {
+  background-image: url("../img/basket-1846135_1920.jpg");
   background-position: center center;
 }
-#portfolio .grid-item .portfolio-link .portfolio-item .effect-layla .portfolio-cell3 {
-  background-image: url('../img/bouquet-of-flowers-1149099_1920.jpg');
+#portfolio
+  .grid-item
+  .portfolio-link
+  .portfolio-item
+  .effect-layla
+  .portfolio-cell3 {
+  background-image: url("../img/bouquet-of-flowers-1149099_1920.jpg");
 }
-#portfolio .grid-item .portfolio-link .portfolio-item .effect-layla .portfolio-cell4 {
-  background-image: url('../img/flowers-2044789_1920.jpg');
+#portfolio
+  .grid-item
+  .portfolio-link
+  .portfolio-item
+  .effect-layla
+  .portfolio-cell4 {
+  background-image: url("../img/flowers-2044789_1920.jpg");
 }
-#portfolio .grid-item .portfolio-link .portfolio-item .effect-layla .portfolio-cell5 {
-  background-image: url('../img/flower-731830_1920.jpg');
+#portfolio
+  .grid-item
+  .portfolio-link
+  .portfolio-item
+  .effect-layla
+  .portfolio-cell5 {
+  background-image: url("../img/flower-731830_1920.jpg");
 }
-#portfolio .grid-item .portfolio-link .portfolio-item .effect-layla .portfolio-cell6 {
-  background-image: url('../img/bouquet-1915255_1920.jpg');
+#portfolio
+  .grid-item
+  .portfolio-link
+  .portfolio-item
+  .effect-layla
+  .portfolio-cell6 {
+  background-image: url("../img/bouquet-1915255_1920.jpg");
 }
 figure.effect-layla .portfolio-cell {
   height: 100%;
@@ -828,7 +855,7 @@ figure.effect-layla .portfolio-cell {
 }
 figure.effect-layla figcaption::before {
   position: absolute;
-  content: '';
+  content: "";
   opacity: 0;
   top: 50px;
   right: 30px;
@@ -845,7 +872,7 @@ figure.effect-layla figcaption::before {
 }
 figure.effect-layla figcaption::after {
   position: absolute;
-  content: '';
+  content: "";
   opacity: 0;
   top: 30px;
   right: 50px;
@@ -864,7 +891,7 @@ figure.effect-layla h2 {
   -webkit-transition: -webkit-transform 0.35s;
   transition: transform 0.35s;
   opacity: 0;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   text-transform: none;
   letter-spacing: 1px;
   font-size: 24px;
@@ -928,7 +955,7 @@ figure.effect-layla:hover h2 {
   padding: 50px 0;
 }
 .portfolio-modal .modal-content h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   margin: 60px 100px 25px;
   font-size: 40px;
   letter-spacing: 1px;
@@ -1012,7 +1039,7 @@ figure.effect-layla:hover h2 {
   background-color: rgba(245, 238, 240, 0.3);
 }
 .modal-name h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 32px;
   letter-spacing: 2px;
   text-transform: capitalize;
@@ -1040,7 +1067,7 @@ figure.effect-layla:hover h2 {
   font-style: italic;
 }
 #testimonials #carousel-reviews .testimonial-cell h5 {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 16px;
   letter-spacing: 2px;
 }
@@ -1117,6 +1144,7 @@ figure.effect-layla:hover h2 {
 }
 #contact .btn-xl {
   margin-top: 70px;
+  margin-bottom: 70px;
   width: 50%;
   color: #ffffff;
   border-color: #fff;
@@ -1225,7 +1253,7 @@ figure.effect-layla:hover h2 {
   }
   .affix .navbar-brand > img {
     height: 50px;
-    transition: all .4s;
+    transition: all 0.4s;
   }
   .navbar-custom.affix {
     margin-top: 0;
@@ -1241,7 +1269,7 @@ figure.effect-layla:hover h2 {
   }
   .affix-top .navbar-brand > img {
     height: 55px;
-    transition: all .4s;
+    transition: all 0.4s;
   }
   .navbar-custom .nav {
     background-color: #ffffff;
@@ -1515,4 +1543,20 @@ figure.effect-layla:hover h2 {
     border: none !important;
     padding: 15px 0;
   }
+}
+
+.cta-form {
+  padding-bottom: 100px;
+}
+
+#about {
+  padding-bottom: 100px;
+}
+
+#blog {
+  padding-bottom: 40px;
+}
+
+#team {
+  padding-bottom: 90px;
 }
