@@ -1,6 +1,20 @@
 const express = require("express");
+const https = require("https");
+const fs = require("fs");
+
+const options = {
+  key: fs.readFileSync("key.pem"),
+  cert: fs.readFileSync("cert.pem"),
+};
 
 const app = express();
+app.use(function (req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  next();
+});
 
 const PORT = process.env.PORT || 3000;
 
@@ -21,6 +35,7 @@ let courses = [
     price: 2999,
   },
 ];
+
 app.use(express.static(__dirname));
 
 app.get("/", (req, res) => {
