@@ -7,6 +7,8 @@ const options = {
   cert: fs.readFileSync("cert.pem"),
 };
 
+var router = express.Router();
+
 const app = express();
 app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -35,6 +37,23 @@ let courses = [
     price: 2999,
   },
 ];
+
+router.use(function (req, res, next) {
+  // .. some logic here .. like any other middleware
+  next();
+});
+
+router.get("/", function (req, res, next) {
+  document.addEventListener("DOMContentLoaded", async function () {
+    const data = await fetch(
+      "https://getpickuplines.herokuapp.com/lines/random"
+    );
+    //" https://gnews.io/api/v4/search?q=weather&token=a38e7f1225ce41d278a77b285823c848"
+    const json = await data.json();
+    console.log(json);
+  });
+  // ..
+});
 
 app.use(express.static(__dirname));
 

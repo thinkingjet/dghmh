@@ -376,7 +376,9 @@ header {
   display: none;
 }
 .navbar-nav > .logo img {
-  padding: 0 35px;
+  width: 41%;
+  max-height: 190px;
+  margin-bottom: 20px;
 }
 .affix {
   height: 66px;
@@ -473,8 +475,7 @@ header {
 /* ------END MAIN SLIDER----------- */
 /* ------5. START LATEST PROJECT section----------- */
 #blog .blog-title {
-  text-indent: 30px;
-  margin: 30px 0 15px 0;
+  margin: 30px 0 0px 0;
   text-transform: none;
 }
 #blog .blog-text {
@@ -482,7 +483,7 @@ header {
 }
 #blog .btn-xl {
   float: right;
-  margin: 20px 45px 15px 0;
+  margin: 50px 45px 15px 0;
   width: 30%;
 }
 #blog .blog-image-cell {
