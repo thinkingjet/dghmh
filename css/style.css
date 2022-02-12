@@ -560,18 +560,28 @@ header {
   border-radius: 50%;
   width: 200px;
 }
+#team .team-image-cell div[class^="team-cell"]{
+  filter: saturate(60%) url('#grain');;
+}
+
 #team .team-image-cell .team-cell1 {
-  background-image: url("../img/team/girl-657753_1280.jpg");
+  background-image: url("../img/movies/shrek.webp");
 }
 #team .team-image-cell .team-cell2 {
-  background-image: url("../img/team/model-2373537_1280.jpg");
+  background-image: url("../img/movies/titanic.jpg");
 }
 #team .team-image-cell .team-cell3 {
-  background-image: url("../img/team/secretary-1379839_1280.jpg");
+  background-image: url("../img/movies/spiderman.jpg");
 }
 #team .team-image-cell .team-cell4 {
-  background-image: url("../img/team/portrait-2226001_1280.jpg");
+  background-image: url("../img/movies/your_name.png");
 }
+
+#team .checked {
+  color: orange;
+}
+
+
 /* ------END TEAM----------- */
 /* ------8. START QUOTE----------- */
 #quote {
