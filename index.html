@@ -114,55 +114,9 @@
   <link href="css/style.css" rel="stylesheet">
   <link href="css/card.css" rel="stylesheet">
 </head>
+</header>
 
 <body id="page-top" class="index">
-<!-- Header -->
-<header>
-  <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header page-scroll">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <i class="fa fa-bars"></i>
-        </button>
-        <a class="navbar-brand navbar-brand2 page-scroll" href="#page-top">
-          <img class="img-responsive img-centered" src="img/logo1.png" alt="Logo">
-        </a>
-      </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <div>
-          <ul class="nav navbar-nav">
-            <li class="hidden">
-              <a href="#page-top"></a>
-            </li>
-            <li>
-              <a class="page-scroll" href="#blog">Pick-Up Lines</a>
-            </li>
-            <li>
-              <a class="page-scroll" href="#about">Restaurants</a>
-            </li>
-            <li>
-              <a class="page-scroll" href="#team">Movie Date</a>
-            </li>
-            <li class="logo">
-              <a class="navbar-brand page-scroll" href="#page-top">
-                <img class="img-responsive img-centered" src="img/logo1.png" alt="">
-              </a>
-            </li>
-            <li>
-              <a class="page-scroll" href="#services">Custom Valentine's card</a>
-            </li>
-            <li>
-              <a class="page-scroll" href="#portfolio">Decor</a>
-            </li>
-            <li>
-              <a class="page-scroll" href="#subscribe">Twilio</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </header>
-
     <!-- Blog Section -->
     <section id="blog" class="visible-over">
       <div class="container">
@@ -327,7 +281,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section id="services">
     <div class="row pos-r">
       <div class="service-image-container col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0">
         <div class="valentine-card">
@@ -609,16 +565,15 @@
                     required
                     data-validation-required-message="Please enter your email address."
                   />
-                  <p class="help-block text-danger"></p>
-                  <span class="input-group-btn">
-                    <button
-                      type="submit"
-                      onclick="sendValue();"
-                      class="btn btn-xl"
-                    >
-                      <i class="fa fa-angle-right" aria-hidden="true"></i>
-                    </button>
-                  </span>
+                <span class="input-group-btn">
+                  <button
+                    type="submit"
+                    onclick="sendValue();"
+                    class="btn btn-xl"
+                  >
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                  </button>
+                </span>
                 </div>
                 <div id="subscribe2-success"></div>
               </form>
