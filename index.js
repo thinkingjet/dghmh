@@ -9,6 +9,32 @@ const options = {
 
 var router = express.Router();
 
+const sgMail = require("@sendgrid/mail");
+sgMail.setApiKey(
+  "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"
+);
+
+document.getElementById("mail-btn").addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log("ji");
+  const mailId = document.getElementById(".mail-list");
+  const msg = {
+    to: mailId, // Change to your recipient
+    from: "angad1411@gmail.com", // Change to your verified sender
+    subject: "Intimate Express",
+    text: "and easy to do anywhere, even with Node.js",
+  };
+
+  sgMail
+    .send(msg)
+    .then(() => {
+      alert("Email sent");
+    })
+    .catch((error) => {
+      alert(error);
+    });
+});
+
 const app = express();
 app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -19,41 +45,6 @@ app.use(function (req, res, next) {
 });
 
 const PORT = process.env.PORT || 3000;
-
-let courses = [
-  {
-    id: "11",
-    name: "Learn Reactjs",
-    price: 299,
-  },
-  {
-    id: "22",
-    name: "Learn Angular",
-    price: 320,
-  },
-  {
-    id: "33",
-    name: "Learn Vue",
-    price: 2999,
-  },
-];
-
-router.use(function (req, res, next) {
-  // .. some logic here .. like any other middleware
-  next();
-});
-
-router.get("/", function (req, res, next) {
-  document.addEventListener("DOMContentLoaded", async function () {
-    const data = await fetch(
-      "https://getpickuplines.herokuapp.com/lines/random"
-    );
-    //" https://gnews.io/api/v4/search?q=weather&token=a38e7f1225ce41d278a77b285823c848"
-    const json = await data.json();
-    console.log(json);
-  });
-  // ..
-});
 
 app.use(express.static(__dirname));
 
