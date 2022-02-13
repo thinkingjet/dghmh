@@ -498,6 +498,8 @@ header {
   height: 100%;
   width: 100%;
 }
+
+
 /* ------END LATEST PROJECT----------- */
 /* ------6. START OUR STORY----------- */
 #about {
@@ -507,19 +509,19 @@ header {
   margin-bottom: 30px;
   margin-top: 0;
 }
-#about .about-text {
+#about .movies {
   column-count: 2;
   column-gap: 50px;
 }
-#about .about-text p:first-child {
+#about .movies p:first-child {
   font-weight: 600;
 }
-#about .about-text .about-separator {
+#about .movies .about-separator {
   width: 100%;
   border-bottom: 1px solid #ebaca5;
   margin: 20px auto;
 }
-#about .about-text ul {
+#about .movies ul {
   font-weight: 500;
   line-height: 1.6;
 }
@@ -1323,7 +1325,7 @@ figure.effect-layla:hover h2 {
     margin: 20px 0 0 0;
     width: inherit;
   }
-  #about .about-text {
+  #about .movies {
     column-count: 1;
   }
   #team .team-heading {
@@ -1502,7 +1504,7 @@ figure.effect-layla:hover h2 {
     font-size: 65px;
     text-align: center;
   }
-  #about .about-text {
+  #about .movies {
     column-gap: 45px;
   }
   #team .team-image-cell {
@@ -1567,3 +1569,33 @@ figure.effect-layla:hover h2 {
 #team {
   padding-bottom: 90px;
 }
+/* .movies{
+  width: 100%;
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.movies li{
+  flex:1;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  list-style:none;
+  margin:10px;
+  padding:15px;
+  border-radius:12px;
+  text-align:center;
+  background:#272727
+}
+
+.movies li img{
+  max-width: 300px;
+  border-radius:12px;
+}
+.movies li h2{
+  color: #fff;
+  font-size: 1.8em;
+  padding: 15px 10px 0;
+  margin-top:auto;
+  font-family: "Oswals", sans-serif;
+} */
