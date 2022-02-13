@@ -1569,7 +1569,7 @@ figure.effect-layla:hover h2 {
 #team {
   padding-bottom: 90px;
 }
-/* .movies{
+.movies{
   width: 100%;
   display:flex;
   flex-wrap: wrap;
@@ -1598,4 +1598,4 @@ figure.effect-layla:hover h2 {
   padding: 15px 10px 0;
   margin-top:auto;
   font-family: "Oswals", sans-serif;
-} */
+}

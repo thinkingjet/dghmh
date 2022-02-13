@@ -68,7 +68,7 @@
                   <a class="page-scroll" href="#blog">Pick-Up Lines</a>
                 </li>
                 <li>
-                  <a class="page-scroll" href="#about">Restaurants</a>
+                  <a class="page-scroll" href="#about">Places</a>
                 </li>
                 <li>
                   <a class="page-scroll" href="#team">Movie Date</a>
@@ -237,23 +237,202 @@
         <div class="row">
           <div class="col-md-12">
             <h4 class="section-name fade-animate">
-              Restaurant Suggestor<i class="fa fa-minus" aria-hidden="true"></i>
+              Places to visit on the date<i class="fa fa-minus" aria-hidden="true"></i>
             </h4>
           </div>
         </div>
         <div class="row pos-r">
           <div class="col-md-10 col-md-offset-1">
             <h1 class="about-heading section-heading fade-animate">
-              Restaurant Suggestor
+              Places Suggestor
             </h1>
             <div class="movies">
-             <script src="movie.js"></script>
-              <div class="about-separator"></div>
-              <ul class="list-unstyled">
-                <li></li>
-                <li></li>
-                <li></li>
-              </ul>
+    
+              <head>
+                <title>Google Maps Places API Nearby Example</title>
+                <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+                <script>
+                $(document).ready(function(){
+                    // type_holder
+                    // <div><label><input type="checkbox" class="types" value="mosque" />Mosque</label></div>
+            
+                     var types = ['amusement_park','aquarium','art_gallery','bakery','bar','bowling_alley','cafe','campground','casino','city_hall','clothing_store','electronics_store','florist','jewelry_store','mel_delivery','meal_takeaway','movie_rental','movie_theater','museum','night_club','park','restaurant','shopping_mall','zoo'];
+                    var html = '';
+            
+                    $.each(types, function( index, value ) {
+                        var name = value.replace(/_/g, " ");
+                        html += '<div><label><input type="checkbox" class="types" value="'+ value +'" />'+ capitalizeFirstLetter(name) +'</label></div>';
+                    });
+            
+                    $('#type_holder').html(html);
+                });
+            
+                function capitalizeFirstLetter(string) {
+                    return string.charAt(0).toUpperCase() + string.slice(1);
+                }
+            
+                var map;
+                var infowindow;
+                var autocomplete;
+                var countryRestrict = {'country': 'in'};
+                var selectedTypes = [];
+            
+                function initialize()
+                {
+                    autocomplete = new google.maps.places.Autocomplete((document.getElementById('address')), {
+                        types: ['(regions)'],
+                       // componentRestrictions: countryRestrict
+                    });
+            
+                    var pyrmont = new google.maps.LatLng(52.5666644, 4.7333304);
+            
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: pyrmont,
+                        zoom: 12
+                    });
+                }
+            
+                function renderMap()
+                {
+                    // Get the user defined values
+                    var address = document.getElementById('address').value;
+                    var radius  = parseInt(document.getElementById('radius').value) * 1000;
+                    
+                    // get the selected type
+                    selectedTypes = [];
+                    $('.types').each(function(){
+                        if($(this).is(':checked'))
+                        {
+                            selectedTypes.push($(this).val());
+                        }
+                    });
+            
+                    var geocoder    = new google.maps.Geocoder();
+                    var selLocLat   = 0;
+                    var selLocLng   = 0;
+            
+                    geocoder.geocode({'address': address}, function(results, status) {
+                        if (status === 'OK')
+                        {
+                            //console.log(results[0].geometry.location.lat() + ' - ' + results[0].geometry.location.lng());
+            
+                            selLocLat   = results[0].geometry.location.lat();
+                            selLocLng   = results[0].geometry.location.lng();
+            
+                            //var pyrmont = new google.maps.LatLng(52.5666644, 4.7333304);
+            
+                            var pyrmont = new google.maps.LatLng(selLocLat, selLocLng);
+            
+                            map = new google.maps.Map(document.getElementById('map'), {
+                                center: pyrmont,
+                                zoom: 11
+                            });
+            
+                            //console.log(selectedTypes);
+            
+                            var request = {
+                                location: pyrmont,
+                                //radius: 5000,
+                                //types: ["atm"]
+                                radius: radius,
+                                types: selectedTypes
+                            };
+            
+                            infowindow = new google.maps.InfoWindow();
+            
+                            var service = new google.maps.places.PlacesService(map);
+                            service.nearbySearch(request, callback);
+                        }
+                        else
+                        {
+                            alert('Geocode was not successful for the following reason: ' + status);
+                        }
+                    });
+                }
+            
+                function callback(results, status)
+                {
+                    if (status == google.maps.places.PlacesServiceStatus.OK)
+                    {
+                        for (var i = 0; i < results.length; i++)
+                        {
+                            createMarker(results[i], results[i].icon);
+                        }
+                    }
+                }
+            
+                function createMarker(place, icon) {
+                    var placeLoc = place.geometry.location;
+            
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: place.geometry.location,
+                        icon: {
+                            url: icon,
+                            scaledSize: new google.maps.Size(20, 20) // pixels
+                        },
+                        animation: google.maps.Animation.DROP
+                    });
+                    
+                    google.maps.event.addListener(marker, 'click', function() {
+                        infowindow.setContent(place.name+ '<br>' +place.vicinity);
+                        infowindow.open(map, this);
+                    });
+                }
+                </script>
+            </head>
+            <body>
+            
+            <div style="float: left">
+                <div id="map" style="width:600px; height:600px;"></div>
+            </div>
+            
+            <div style="float: right;">
+                <form  name="frm_map" id="frm_map">
+                    <table>
+                        <tr>
+                            <th>Address</th>
+                            <td>
+                                <input type="text" name="address" id="address" value="Akersloot, Netherlands">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Radius(km)</th>
+                            <td>
+                                <input type="text" name="radius" id="radius" value="5" placeholder="In KM">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Types</th>
+                            <td>
+                                <div id="type_holder" style="height: 200px; overflow-y: scroll;">
+                                    <!-- Dynamic Content -->    
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="button" value="Show" id="submit" onclick="renderMap();">
+                                <input type="reset" value="Reset">
+                            </td>
+                        </tr>
+                    </table>
+                    
+                </form>
+           
+            </div>
+            <button
+            data-toggle="modal"
+            class="page-scroll btn btn-xl fade-animate"
+          >
+            Reserve A spot(coming soon)
+          </button>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAKykRvZ186e8516dZq9Ml6ZogN0QIOJk&libraries=places&callback=initialize" async defer></script>
+            <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+            
+            </body>
+            
             </div>
           </div>
         </div>
@@ -664,7 +843,7 @@
                 <figure class="effect-layla">
                   <div class="portfolio-cell portfolio-cell1"></div>
                   <figcaption>
-                    <h2>Serendipity</h2>
+                    <h2>Flowers</h2>
                   </figcaption>
                 </figure>
               </div>
@@ -700,7 +879,7 @@
                 <figure class="effect-layla">
                   <div class="portfolio-cell portfolio-cell3"></div>
                   <figcaption>
-                    <h2>Serendipity</h2>
+                    <h2>Make them feel special</h2>
                   </figcaption>
                 </figure>
               </div>
@@ -716,7 +895,7 @@
                 <figure class="effect-layla">
                   <div class="portfolio-cell portfolio-cell4"></div>
                   <figcaption>
-                    <h2>Serendipity</h2>
+                    <h2>Don't have a valentine?</h2>
                   </figcaption>
                 </figure>
               </div>
@@ -732,7 +911,7 @@
                 <figure class="effect-layla">
                   <div class="portfolio-cell portfolio-cell5"></div>
                   <figcaption>
-                    <h2>Serendipity</h2>
+                    <h2>Forever someone</h2>
                   </figcaption>
                 </figure>
               </div>
@@ -748,7 +927,7 @@
                 <figure class="effect-layla">
                   <div class="portfolio-cell portfolio-cell6"></div>
                   <figcaption>
-                    <h2>Serendipity</h2>
+                    <h2>Me, Myself and I</h2>
                   </figcaption>
                 </figure>
               </div>
@@ -904,7 +1083,7 @@
                     <div
                       class="col-xs-5 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 modal-name"
                     >
-                      <h3>Serendipity</h3>
+                      <h3>Flowers</h3>
                     </div>
                     <img
                       class="img-responsive img-centered"
@@ -912,17 +1091,10 @@
                       alt=""
                     />
                   </div>
-                  <h2>Serendipity</h2>
+                  <h2>Flowers</h2>
                   <div class="modal-separator"></div>
                   <p>
-                    Use this area to describe your project. Lorem ipsum dolor
-                    sit amet, consectetur adipisicing elit. Est blanditiis
-                    dolorem culpa incidunt minus dignissimos deserunt repellat
-                    aperiam quasi sunt officia expedita beatae. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit. Est blanditiis
-                    dolorem culpa incidunt minus dignissimos deserunt repellat
-                    aperiam quasi sunt officia expedita beatae cupiditate,
-                    maiores repudiandae, nostrum, reiciendis facere nemo!
+                 
                   </p>
                   <div class="col-md-12">
                     <img
@@ -940,34 +1112,21 @@
                   </div>
                   <div class="col-md-6 modal-text-col">
                     <h2>1</h2>
-                    <h5>Small headline</h5>
+                    <h5>Gifting Flowers</h5>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way.
+                      What's more romantic than a bouquet on the first date? A flower arrangement! 
                     </p>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way. Two days after launching we
-                      had our first client. In what we do, being creative is
-                      crucial.
+                     
                     </p>
                   </div>
                   <!--<img class="img-responsive img-centered" src="img/plant-1985874_1920.jpg" alt="">-->
                   <div style="clear: left"></div>
                   <div class="col-md-6 modal-text-col">
                     <h2>2</h2>
-                    <h5>Small headline</h5>
+                    <h5>Make it special</h5>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way. We launched three years ago
-                      and loved it every second. At the time I was just a man
-                      with an ideea but 2 weeks later I was a man with a plan.
+                      Consider the 'First Date' arrangement, since it features a variety of warm colors and crisp petals, including white roses, purple roses, and daisies.
                     </p>
                   </div>
                   <div class="col-md-6">
@@ -986,18 +1145,12 @@
                   </div>
                   <div class="col-md-6 modal-text-col">
                     <h2>3</h2>
-                    <h5>Small headline</h5>
+                    <h5>Best arrangement</h5>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way. We launched three years ago
-                      and loved it every second. At the time I was just a man
-                      with an ideea but 2 weeks later I was a man with a plan.
+                      If you want your date to fall head over heels for you, this arrangement is the perfect choice for your romantic evening!
                     </p>
                     <p>
-                      At the time I was just a man with an ideea but 2 weeks
-                      later I was a man with a plan.
+          
                     </p>
                   </div>
                   <div class="col-md-12">
@@ -1042,7 +1195,7 @@
                     <div
                       class="col-xs-5 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 modal-name"
                     >
-                      <h3>Serendipity</h3>
+                      <h3>Flowers</h3>
                     </div>
                     <img
                       class="img-responsive img-centered"
@@ -1050,17 +1203,10 @@
                       alt=""
                     />
                   </div>
-                  <h2>Serendipity</h2>
+                  <h2></h2>
                   <div class="modal-separator"></div>
                   <p>
-                    Use this area to describe your project. Lorem ipsum dolor
-                    sit amet, consectetur adipisicing elit. Est blanditiis
-                    dolorem culpa incidunt minus dignissimos deserunt repellat
-                    aperiam quasi sunt officia expedita beatae. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit. Est blanditiis
-                    dolorem culpa incidunt minus dignissimos deserunt repellat
-                    aperiam quasi sunt officia expedita beatae cupiditate,
-                    maiores repudiandae, nostrum, reiciendis facere nemo!
+                   
                   </p>
                   <div class="col-md-12">
                     <img
@@ -1078,34 +1224,21 @@
                   </div>
                   <div class="col-md-6 modal-text-col">
                     <h2>1</h2>
-                    <h5>Small headline</h5>
+                    <h5></h5>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way.
+                     
                     </p>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way. Two days after launching we
-                      had our first client. In what we do, being creative is
-                      crucial.
+                    
                     </p>
                   </div>
                   <!--<img class="img-responsive img-centered" src="img/plant-1985874_1920.jpg" alt="">-->
                   <div style="clear: left"></div>
                   <div class="col-md-6 modal-text-col">
                     <h2>2</h2>
-                    <h5>Small headline</h5>
+                    <h5></h5>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way. We launched three years ago
-                      and loved it every second. At the time I was just a man
-                      with an ideea but 2 weeks later I was a man with a plan.
+                   
                     </p>
                   </div>
                   <div class="col-md-6">
@@ -1124,18 +1257,12 @@
                   </div>
                   <div class="col-md-6 modal-text-col">
                     <h2>3</h2>
-                    <h5>Small headline</h5>
+                    <h5></h5>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way. We launched three years ago
-                      and loved it every second. At the time I was just a man
-                      with an ideea but 2 weeks later I was a man with a plan.
+                     
                     </p>
                     <p>
-                      At the time I was just a man with an ideea but 2 weeks
-                      later I was a man with a plan.
+                     
                     </p>
                   </div>
                   <div class="col-md-12">
@@ -1179,7 +1306,7 @@
                     <div
                       class="col-xs-5 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 modal-name"
                     >
-                      <h3>Serendipity</h3>
+                      <h3>The Special Someone</h3>
                     </div>
                     <img
                       class="img-responsive img-centered"
@@ -1187,17 +1314,10 @@
                       alt=""
                     />
                   </div>
-                  <h2>Serendipity</h2>
+                  <h2>Make them feel special</h2>
                   <div class="modal-separator"></div>
                   <p>
-                    Use this area to describe your project. Lorem ipsum dolor
-                    sit amet, consectetur adipisicing elit. Est blanditiis
-                    dolorem culpa incidunt minus dignissimos deserunt repellat
-                    aperiam quasi sunt officia expedita beatae. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit. Est blanditiis
-                    dolorem culpa incidunt minus dignissimos deserunt repellat
-                    aperiam quasi sunt officia expedita beatae cupiditate,
-                    maiores repudiandae, nostrum, reiciendis facere nemo!
+                    
                   </p>
                   <div class="col-md-12">
                     <img
@@ -1215,34 +1335,21 @@
                   </div>
                   <div class="col-md-6 modal-text-col">
                     <h2>1</h2>
-                    <h5>Small headline</h5>
+                    <h5>Problem</h5>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way.
+                      What do you do when you're not close enough to your crush to give them a kiss, but you really want to show them that you care about them?
                     </p>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way. Two days after launching we
-                      had our first client. In what we do, being creative is
-                      crucial.
+                    
                     </p>
                   </div>
                   <!--<img class="img-responsive img-centered" src="img/plant-1985874_1920.jpg" alt="">-->
                   <div style="clear: left"></div>
                   <div class="col-md-6 modal-text-col">
                     <h2>2</h2>
-                    <h5>Small headline</h5>
+                    <h5>Solution</h5>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way. We launched three years ago
-                      and loved it every second. At the time I was just a man
-                      with an ideea but 2 weeks later I was a man with a plan.
+                      Send them a small 'Promised Kisses' flower arrangement! Presented in a casual watering can, you'll be sure that you won't intimidate your crush with your overflowing love.
                     </p>
                   </div>
                   <div class="col-md-6">
@@ -1261,18 +1368,12 @@
                   </div>
                   <div class="col-md-6 modal-text-col">
                     <h2>3</h2>
-                    <h5>Small headline</h5>
+                    <h5>Explanation</h5>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way. We launched three years ago
-                      and loved it every second. At the time I was just a man
-                      with an ideea but 2 weeks later I was a man with a plan.
+                      Presented in a casual watering can, you'll be sure that you won't intimidate your crush with your overflowing love.
                     </p>
                     <p>
-                      At the time I was just a man with an ideea but 2 weeks
-                      later I was a man with a plan.
+                    
                     </p>
                   </div>
                   <div class="col-md-12">
@@ -1316,7 +1417,7 @@
                     <div
                       class="col-xs-5 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 modal-name"
                     >
-                      <h3>Serendipity</h3>
+                      <h3>5 Min Hack</h3>
                     </div>
                     <img
                       class="img-responsive img-centered"
@@ -1324,17 +1425,10 @@
                       alt=""
                     />
                   </div>
-                  <h2>Serendipity</h2>
+                  <h2>Valentine Hack</h2>
                   <div class="modal-separator"></div>
                   <p>
-                    Use this area to describe your project. Lorem ipsum dolor
-                    sit amet, consectetur adipisicing elit. Est blanditiis
-                    dolorem culpa incidunt minus dignissimos deserunt repellat
-                    aperiam quasi sunt officia expedita beatae. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit. Est blanditiis
-                    dolorem culpa incidunt minus dignissimos deserunt repellat
-                    aperiam quasi sunt officia expedita beatae cupiditate,
-                    maiores repudiandae, nostrum, reiciendis facere nemo!
+                    Maybe you don't have a valentine yet?
                   </p>
                   <div class="col-md-12">
                     <img
@@ -1352,34 +1446,21 @@
                   </div>
                   <div class="col-md-6 modal-text-col">
                     <h2>1</h2>
-                    <h5>Small headline</h5>
+                    <h5>Flowers?</h5>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way.
+                      Aside from using our website, why not get a friend or a family member some flowers?
                     </p>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way. Two days after launching we
-                      had our first client. In what we do, being creative is
-                      crucial.
+                      
                     </p>
                   </div>
                   <!--<img class="img-responsive img-centered" src="img/plant-1985874_1920.jpg" alt="">-->
                   <div style="clear: left"></div>
                   <div class="col-md-6 modal-text-col">
                     <h2>2</h2>
-                    <h5>Small headline</h5>
+                    <h5>:)</h5>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way. We launched three years ago
-                      and loved it every second. At the time I was just a man
-                      with an ideea but 2 weeks later I was a man with a plan.
+                      A small vase of flowers (your choice!) will appear kind and considerate to those you love! 
                     </p>
                   </div>
                   <div class="col-md-6">
@@ -1398,18 +1479,12 @@
                   </div>
                   <div class="col-md-6 modal-text-col">
                     <h2>3</h2>
-                    <h5>Small headline</h5>
+                    <h5>Don't worry</h5>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way. We launched three years ago
-                      and loved it every second. At the time I was just a man
-                      with an ideea but 2 weeks later I was a man with a plan.
+                      Don't worry, you can save the real thing for your valentine.
                     </p>
                     <p>
-                      At the time I was just a man with an ideea but 2 weeks
-                      later I was a man with a plan.
+                    
                     </p>
                   </div>
                   <div class="col-md-12">
@@ -1453,7 +1528,7 @@
                     <div
                       class="col-xs-5 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 modal-name"
                     >
-                      <h3>Serendipity</h3>
+                      <h3>Special Someone</h3>
                     </div>
                     <img
                       class="img-responsive img-centered"
@@ -1461,17 +1536,10 @@
                       alt=""
                     />
                   </div>
-                  <h2>Serendipity</h2>
+                  <h2>What to do?</h2>
                   <div class="modal-separator"></div>
                   <p>
-                    Use this area to describe your project. Lorem ipsum dolor
-                    sit amet, consectetur adipisicing elit. Est blanditiis
-                    dolorem culpa incidunt minus dignissimos deserunt repellat
-                    aperiam quasi sunt officia expedita beatae. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit. Est blanditiis
-                    dolorem culpa incidunt minus dignissimos deserunt repellat
-                    aperiam quasi sunt officia expedita beatae cupiditate,
-                    maiores repudiandae, nostrum, reiciendis facere nemo!
+                    Let's say you have a person in mind. You've been together for a while, and you want to get something to confirm your love. 
                   </p>
                   <div class="col-md-12">
                     <img
@@ -1489,34 +1557,21 @@
                   </div>
                   <div class="col-md-6 modal-text-col">
                     <h2>1</h2>
-                    <h5>Small headline</h5>
+                    <h5>Boquet</h5>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way.
+                      Why not a "Forever" bouquet? Sure, it looks like a bridal bouquet, but there's no harm in taking the next step!
                     </p>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way. Two days after launching we
-                      had our first client. In what we do, being creative is
-                      crucial.
+                   
                     </p>
                   </div>
                   <!--<img class="img-responsive img-centered" src="img/plant-1985874_1920.jpg" alt="">-->
                   <div style="clear: left"></div>
                   <div class="col-md-6 modal-text-col">
                     <h2>2</h2>
-                    <h5>Small headline</h5>
+                    <h5>Make it official</h5>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way. We launched three years ago
-                      and loved it every second. At the time I was just a man
-                      with an ideea but 2 weeks later I was a man with a plan.
+                      Maybe this is your opportunity to tie the knot.
                     </p>
                   </div>
                   <div class="col-md-6">
@@ -1535,18 +1590,12 @@
                   </div>
                   <div class="col-md-6 modal-text-col">
                     <h2>3</h2>
-                    <h5>Small headline</h5>
+                    <h5>True Love</h5>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way. We launched three years ago
-                      and loved it every second. At the time I was just a man
-                      with an ideea but 2 weeks later I was a man with a plan.
+                      A small bouquet of white flowers symbolizes purity and connection, which is exactly what you need for your valentine.
                     </p>
                     <p>
-                      At the time I was just a man with an ideea but 2 weeks
-                      later I was a man with a plan.
+                      
                     </p>
                   </div>
                   <div class="col-md-12">
@@ -1590,7 +1639,7 @@
                     <div
                       class="col-xs-5 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 modal-name"
                     >
-                      <h3>Serendipity</h3>
+                      <h3>Focus on yourself</h3>
                     </div>
                     <img
                       class="img-responsive img-centered"
@@ -1598,17 +1647,10 @@
                       alt=""
                     />
                   </div>
-                  <h2>Serendipity</h2>
+                  <h2>YOU</h2>
                   <div class="modal-separator"></div>
                   <p>
-                    Use this area to describe your project. Lorem ipsum dolor
-                    sit amet, consectetur adipisicing elit. Est blanditiis
-                    dolorem culpa incidunt minus dignissimos deserunt repellat
-                    aperiam quasi sunt officia expedita beatae. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit. Est blanditiis
-                    dolorem culpa incidunt minus dignissimos deserunt repellat
-                    aperiam quasi sunt officia expedita beatae cupiditate,
-                    maiores repudiandae, nostrum, reiciendis facere nemo!
+                    Are you your own valentine this year?
                   </p>
                   <div class="col-md-12">
                     <img
@@ -1626,34 +1668,21 @@
                   </div>
                   <div class="col-md-6 modal-text-col">
                     <h2>1</h2>
-                    <h5>Small headline</h5>
+                    <h5>It's ok/h5>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way.
+                      That's fine, just make sure you use our pick-up line service to impress yourself with some adorable lines! 
                     </p>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way. Two days after launching we
-                      had our first client. In what we do, being creative is
-                      crucial.
+                   
                     </p>
                   </div>
                   <!--<img class="img-responsive img-centered" src="img/plant-1985874_1920.jpg" alt="">-->
                   <div style="clear: left"></div>
                   <div class="col-md-6 modal-text-col">
                     <h2>2</h2>
-                    <h5>Small headline</h5>
+                    <h5>Enjoy the day</h5>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way. We launched three years ago
-                      and loved it every second. At the time I was just a man
-                      with an ideea but 2 weeks later I was a man with a plan.
+                      But, then again, you could also purchase a small vase of, let's say, roses, and add a splash of color to your room.
                     </p>
                   </div>
                   <div class="col-md-6">
@@ -1672,18 +1701,12 @@
                   </div>
                   <div class="col-md-6 modal-text-col">
                     <h2>3</h2>
-                    <h5>Small headline</h5>
+                    <h5>No shame</h5>
                     <p>
-                      We launched three years ago and loved it every second. At
-                      the time I was just a man with an ideea but 2 weeks later
-                      I was a man with a plan. We jumped on this adventure and
-                      learned a lot along the way. We launched three years ago
-                      and loved it every second. At the time I was just a man
-                      with an ideea but 2 weeks later I was a man with a plan.
+                      It's your day, and there's no shame in spoiling yourself with as many flowers as you'd like!
                     </p>
                     <p>
-                      At the time I was just a man with an ideea but 2 weeks
-                      later I was a man with a plan.
+                     
                     </p>
                   </div>
                   <div class="col-md-12">
