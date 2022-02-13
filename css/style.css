@@ -196,7 +196,7 @@ textarea:-webkit-autofill:focus {
   background-image: none;
 }
 section {
-  padding-top: 100px;
+  padding: 100px 0px;
 }
 section .section-heading {
   font-family: "Playfair Display", serif;
@@ -477,6 +477,8 @@ header {
 #blog .blog-title {
   margin: 30px 0 0px 0;
   text-transform: none;
+  color: #4e4e4e;
+  font-weight: 300;
 }
 #blog .blog-text {
   text-indent: 30px;
@@ -485,6 +487,8 @@ header {
   float: right;
   margin: 50px 45px 15px 0;
   width: 30%;
+  color: #ee958b;
+  border-color: #ee958b;
 }
 #blog .blog-image-cell {
   position: absolute;
@@ -498,6 +502,27 @@ header {
   height: 100%;
   width: 100%;
 }
+
+#frm_map table {
+  border-spacing: 10px;
+  border-collapse: separate;
+  color: #e0958e;
+}
+
+#frm_map td input {
+  padding: 3px;
+}
+
+#type_holder label > input {
+  margin-right: 5px;
+}
+
+.reserve-spot-btn {
+  margin: 50px auto 0px auto;
+  color: #eea7a0;
+  border-color: #eea7a0;
+}
+
 /* ------END LATEST PROJECT----------- */
 /* ------6. START OUR STORY----------- */
 #about {
@@ -507,19 +532,19 @@ header {
   margin-bottom: 30px;
   margin-top: 0;
 }
-#about .about-text {
+#about .movies {
   column-count: 2;
   column-gap: 50px;
 }
-#about .about-text p:first-child {
+#about .movies p:first-child {
   font-weight: 600;
 }
-#about .about-text .about-separator {
+#about .movies .about-separator {
   width: 100%;
   border-bottom: 1px solid #ebaca5;
   margin: 20px auto;
 }
-#about .about-text ul {
+#about .movies ul {
   font-weight: 500;
   line-height: 1.6;
 }
@@ -561,18 +586,28 @@ header {
   border-radius: 50%;
   width: 200px;
 }
+#team .team-image-cell div[class^="team-cell"]{
+  filter: saturate(60%) url('#grain');;
+}
+
 #team .team-image-cell .team-cell1 {
-  background-image: url("../img/team/girl-657753_1280.jpg");
+  background-image: url("../img/movies/shrek.webp");
 }
 #team .team-image-cell .team-cell2 {
-  background-image: url("../img/team/model-2373537_1280.jpg");
+  background-image: url("../img/movies/titanic.jpg");
 }
 #team .team-image-cell .team-cell3 {
-  background-image: url("../img/team/secretary-1379839_1280.jpg");
+  background-image: url("../img/movies/spiderman.jpg");
 }
 #team .team-image-cell .team-cell4 {
-  background-image: url("../img/team/portrait-2226001_1280.jpg");
+  background-image: url("../img/movies/your_name.png");
 }
+
+#team .checked {
+  color: orange;
+}
+
+
 /* ------END TEAM----------- */
 /* ------8. START QUOTE----------- */
 #quote {
@@ -1105,7 +1140,7 @@ figure.effect-layla:hover h2 {
 }
 #contact .contact-heading {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 #contact .help-block {
   position: absolute;
@@ -1137,7 +1172,7 @@ figure.effect-layla:hover h2 {
   color: #ffffff !important;
   letter-spacing: 1px;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 15px;
 }
 #contact .btn-xl {
   margin-top: 70px;
@@ -1313,7 +1348,7 @@ figure.effect-layla:hover h2 {
     margin: 20px 0 0 0;
     width: inherit;
   }
-  #about .about-text {
+  #about .movies {
     column-count: 1;
   }
   #team .team-heading {
@@ -1492,7 +1527,7 @@ figure.effect-layla:hover h2 {
     font-size: 65px;
     text-align: center;
   }
-  #about .about-text {
+  #about .movies {
     column-gap: 45px;
   }
   #team .team-image-cell {
@@ -1556,4 +1591,34 @@ figure.effect-layla:hover h2 {
 
 #team {
   padding-bottom: 90px;
+}
+.movies{
+  width: 100%;
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.movies li{
+  flex:1;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  list-style:none;
+  margin:10px;
+  padding:15px;
+  border-radius:12px;
+  text-align:center;
+  background:#272727
+}
+
+.movies li img{
+  max-width: 300px;
+  border-radius:12px;
+}
+.movies li h2{
+  color: #fff;
+  font-size: 1.8em;
+  padding: 15px 10px 0;
+  margin-top:auto;
+  font-family: "Oswals", sans-serif;
 }
