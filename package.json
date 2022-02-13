@@ -1,0 +1,27 @@
+{
+  "name": "dghmh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  
+  "scripts": {
+    "start": "nodemon index.js",
+    "build": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thinkingjet/dghmh.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thinkingjet/dghmh/issues"
+  },
+  "homepage": "https://github.com/thinkingjet/dghmh#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
