@@ -780,25 +780,18 @@
             </h1>
             <!-- MailChimp Signup Form -->
             <div id="mc_embed_signup">
-              <form
-                action="#"
-                method="post"
-                id="subscribe-form"
-                target="_blank"
-                novalidate
-              >
+              <form id="subscribe-form" method="POST" action="/mail">
                 <div class="input-group input-group-lg form-group">
                   <input
                     type="email"
                     name="email"
                     class="form-control"
+                    id="mail-list"
                     placeholder="Email address..."
-                    required
-                    data-validation-required-message="Please enter your email address."
                   />
                   <p class="help-block text-danger"></p>
                   <span class="input-group-btn">
-                    <button type="submit" name="subscribe" class="btn btn-xl">
+                    <button type="submit" id="mail-btnnn" class="btn btn-xl">
                       <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </button>
                   </span>
@@ -1718,8 +1711,7 @@
     <script src="vendor/jquery/jquery.easing.min.js"></script>
     <script src="vendor/jquery/jquery.viewportchecker.js"></script>
     <script src="js/jquery.bcSwipe.min.js"></script>
-    <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
+
     <!-- Theme JavaScript -->
     <script src="./js/main.js"></script>
     <script src="./js/index.js"></script>
