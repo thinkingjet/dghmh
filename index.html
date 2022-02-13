@@ -88,11 +88,11 @@
                   >
                 </li>
                 <li>
-                  <a class="page-scroll" href="#portfolio">Decor</a>
-                </li>
-                <li>
                   <a class="page-scroll" href="#subscribe">Twilio</a>
                 </li>
+                <li>
+                  <a class="page-scroll" href="#portfolio">Decor</a>
+                </li>            
               </ul>
             </div>
           </div>
@@ -221,7 +221,7 @@
               <button
                 onclick="getlines()"
                 data-toggle="modal"
-                class="page-scroll btn btn-xl fade-animate"
+                class="pickup-btn page-scroll btn btn-xl fade-animate"
               >
                 Try another
               </button>
@@ -424,7 +424,7 @@
             </div>
             <button
             data-toggle="modal"
-            class="page-scroll btn btn-xl fade-animate"
+            class="reserve-spot-btn page-scroll btn btn-xl fade-animate"
           >
             Reserve A spot(coming soon)
           </button>
@@ -944,47 +944,28 @@
         <div class="row">
           <div class="col-md-12">
             <h4 class="section-name fade-animate">
-              Powered By Twilio<i class="fa fa-minus" aria-hidden="true"></i>
+              Bee my valentine<i class="fa fa-minus" aria-hidden="true"></i>
             </h4>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
             <h1 class="contact-heading section-heading fade-animate delay4">
-              say hello
+              Bee sweet
             </h1>
+            <h6 class="fade-animate delay4" style="text-align: center; color: #ebaca5; padding-bottom: 50px;">
+              Ask him/her out with this cute little digital message.
+            </h6>
             <form name="sentMessage" id="contactForm" novalidate>
               <div class="row">
                 <div class="form-group col-md-12">
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="Name *"
-                    id="name"
+                    placeholder="His/Her Name *"
+                    id="bee_name"
                     required
                     data-validation-required-message="Please enter your name."
-                  />
-                  <p class="help-block text-danger"></p>
-                </div>
-                <div class="form-group col-md-12">
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="Email *"
-                    id="email"
-                    required
-                    data-validation-required-message="Please enter your email address."
-                  />
-                  <p class="help-block text-danger"></p>
-                </div>
-                <div class="form-group col-md-12">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Subject *"
-                    id="subject"
-                    required
-                    data-validation-required-message="Please enter the subject."
                   />
                   <p class="help-block text-danger"></p>
                 </div>
@@ -993,7 +974,7 @@
                   <textarea
                     class="form-control"
                     placeholder="Message *"
-                    id="message"
+                    id="bee_message"
                     required
                     data-validation-required-message="Please enter a message."
                   ></textarea>
@@ -1001,7 +982,7 @@
                 </div>
                 <div class="col-md-12 text-center fade-animate">
                   <div id="success"></div>
-                  <button type="submit" class="btn btn-xl">Send message</button>
+                  <button type="submit" class="btn btn-xl" onclick="beeCard()">Send message</button>
                 </div>
               </div>
             </form>
@@ -1740,11 +1721,12 @@
     <!-- Contact Form JavaScript -->
     <script src="js/jqBootstrapValidation.js"></script>
     <!-- Theme JavaScript -->
-    <script src="js/main.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/valentine-card.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/valentine-card.js"></script>
     <!--Gauravs updates-->
-    <script src="/js/script.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/bee-card.js"></script>
   </body>
 
   <!-- Mirrored from html.third-generation-web.com/mille-fiori/index-light.html by  Website Copier/3.x [XR&CO'2014], Fri, 11 Feb 2022 14:53:42 GMT -->

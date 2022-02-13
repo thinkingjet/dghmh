@@ -1,8 +1,9 @@
 <html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <head>
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <title>Happy Valentine's Day Jensen!</title> 
+    <title id="bee_title">Happy Valentine's Day Jensen!</title> 
     <style>
       html,
       body {
@@ -561,9 +562,27 @@
         z-index: 1000;
         position: fixed;
       }
+
+      .goBack {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: transparent;
+        border: 0px;
+        z-index: 100;
+        cursor: pointer;
+      }
+
+      .goBack i {
+        color: #286883;
+      }
     </style>
   </head>
   <body>
+    <button class="goBack" onclick="closeTab()">
+      <i class="fa fa-2x fa-times"></i>
+    </button>
+
     <div id="heart-container">
 
     </div>
@@ -598,9 +617,10 @@
       
           const urlParams = new URLSearchParams(window.location.search);
           console.log(urlParams);
-          const valentine = urlParams.get('valentine');
+          const valentine = capitalize(urlParams.get('valentine'));
           if (valentine) {
             document.getElementById('valentine').innerHTML = valentine;
+            document.getElementById('bee_title').innerHTML = "Happy Valentine's Day "+valentine+"!";
           }
           const message = urlParams.get('message');
           if (message) {
@@ -644,7 +664,15 @@
               heartDiv.innerHTML = ['♡', '♥'][randomize(2)];
               document.getElementById('heart-container').appendChild(heartDiv);
           }
-      })()    
+      })()   
+      
+      function closeTab() {
+        window.close();
+      }
+
+      function capitalize(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
           </script>  
    
     
