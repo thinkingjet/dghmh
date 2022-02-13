@@ -531,17 +531,18 @@
             </h1>
             <!-- MailChimp Signup Form -->
             <div id="mc_embed_signup">
-              <form id="subscribe-form">
+              <form id="subscribe-form" method="POST" action="/mail">
                 <div class="input-group input-group-lg form-group">
                   <input
                     type="email"
+                    name="email"
                     class="form-control"
                     id="mail-list"
                     placeholder="Email address..."
                   />
                   <p class="help-block text-danger"></p>
                   <span class="input-group-btn">
-                    <button id="mail-btn" class="btn btn-xl">
+                    <button type="submit" id="mail-btnnn" class="btn btn-xl">
                       <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </button>
                   </span>
@@ -1636,15 +1637,14 @@
     <script src="vendor/jquery/jquery.easing.min.js"></script>
     <script src="vendor/jquery/jquery.viewportchecker.js"></script>
     <script src="js/jquery.bcSwipe.min.js"></script>
-    <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
+
     <!-- Theme JavaScript -->
     <script src="js/main.js"></script>
     <script src="js/valentine-card.js"></script>
     <!--Gauravs updates-->
     <script src="/js/script.js"></script>
     <!--Swayams updates-->
-    <script src="/index.js"></script>
+    <script src="/js/email.js"></script>
   </body>
 
   <!-- Mirrored from html.third-generation-web.com/mille-fiori/index-light.html by  Website Copier/3.x [XR&CO'2014], Fri, 11 Feb 2022 14:53:42 GMT -->
